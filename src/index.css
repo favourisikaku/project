@@ -4,7 +4,7 @@
   --secondary: #05445e;
   --tertiary: #ff8000;
   --danger: #e51a1a;
-  --text-color-1: #667084;
+  --text-color-1: white;
   --color-3: #23602b;
   --dark: #101828;
   --gray: #667084;
@@ -35,7 +35,9 @@ body {
   line-height: 1.75rem;
   color: var(--text-color-1);
 }
-
+* {
+  background-color: black;
+}
 h1,
 h2,
 h3,
@@ -2236,8 +2238,8 @@ hr {
 
 .custom-pills.nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: var(--primary);
-  background-color: #fff0f0;
+  color: white;
+  /* background-color: #fff0f0; */
 }
 
 .custom-pills.nav-pills .nav-link {
@@ -2394,12 +2396,66 @@ table {
   font-size: 2rem;
 }
 
+@media screen and (max-width: 992px) {
+  .navbar-bottom {
+    display: block !important;
+  }
+
+  .dashboard-more {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .hero-heading {
     font-size: 2.5rem;
     font-weight: 700;
   }
 
+  .logo-header-text {
+    display: none;
+  }
+
+  .dashboard-more {
+    display: none;
+  }
+  .vertx-logo-mobile {
+    display: block !important;
+  }
+  .navbar-circle-mobile-image {
+    display: none !important;
+  }
+  .navbar-circle-mobile {
+    display: block !important;
+    padding-left: 15px !important;
+    padding-right: 18px !important;
+  }
+
+  .overview-section-1-header {
+    flex-direction: column !important;
+    padding: 0 !important;
+  }
+
+  .overview-section-1-header .d-flex {
+    margin-top: 10px;
+  }
+  .entrepreneur-header {
+    display: flex;
+  }
+  .entrepreneur-header span {
+    height: 23px;
+    margin-top: 3px;
+  }
+  .entrepreneur-header .logos {
+    padding-top: 0 !important;
+  }
+  .section-2-header {
+    padding: 0 !important;
+  }
+
+  .section-3-header {
+    padding: 0 !important;
+  }
   .list-check-users-3 {
     column-count: 2;
   }

@@ -12,27 +12,48 @@ const SidebarInc = () => {
       id="sidebar"
     >
       <div className="flex-lg-column align-items-lg-start d-flex align-items-center justify-content-between w-100">
-        <button
-          className="navbar-toggler border-0"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
-          aria-label="Toggle navigation"
-        >
-          <i className="bi bi-list bi-2 text-dark cursor-pointer"></i>
-        </button>
-
-        <Link
-          className="navbar-brand me-0 ps-lg-4 text-bold"
-          to="/organisation-admin/dashboard"
-        >
+        <div className="d-flex align-items-center  mt-3">
+          <div>
+            <Link className="navbar-brand me-0 ps-lg-4 text-bold" to="/">
+              <img
+                src="/images/Vertx.svg"
+                className="img-fluid h-icon-50  ms-3  py-1 rounded-circle navbar-circle-mobile-image"
+                alt="logo"
+                style={{
+                  backgroundColor: "white",
+                  minWidth: "30px",
+                  minHeight: "36px",
+                  paddingRight: "5px",
+                  paddingLeft: "5px",
+                }}
+              />
+              <span
+                className="img-fluid h-icon-50  ms-3  py-1 rounded-circle navbar-circle-mobile"
+                style={{
+                  backgroundColor: "white",
+                  minWidth: "30px",
+                  minHeight: "36px",
+                  paddingRight: "6px",
+                  paddingLeft: "5px",
+                  display: "none",
+                }}
+              ></span>
+            </Link>
+          </div>
+          <h5 className="mt-3 ms-4 logo-header-text">Vertxlabs,Inc</h5>
           <img
-            src="/images/logo-scholastica-white.svg"
-            className="img-fluid h-icon-50"
+            src="/images/Vertx.svg"
+            className="img-fluid h-icon-50  ms-3  vertx-logo-mobile"
             alt="logo"
+            style={{
+              minWidth: "30px",
+              minHeight: "36px",
+              paddingRight: "5px",
+              paddingLeft: "5px",
+              display: "none",
+            }}
           />
-        </Link>
+        </div>
 
         <div className="navbar-user d-lg-none">
           <a
@@ -43,19 +64,16 @@ const SidebarInc = () => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <div className="avatar-sm rounded-circle me-2">
-              <img
-                src="/images/download.png"
-                className="img-fluid object-fit-cover object-position-center w-100 h-100"
-              />
+            <div className="avatar-sm rounded-circle me-2 mt-2">
+              <img src="/images/Vector (10).svg" className="img-fluid " />
             </div>
-            <div className="d-flex align-items-center">
+            {/* <div className="d-flex align-items-center">
               <p className="text-truncate text-main-4 d-lg-inline-block d-none text-medium mb-0">
                 Hi, Ray
               </p>
-            </div>
+            </div> */}
           </a>
-          <ul
+          {/* <ul
             className="dropdown-menu drop-size-2 cat-list border-0 py-0 right-0"
             aria-labelledby="navbarDropdown"
           >
@@ -74,7 +92,7 @@ const SidebarInc = () => {
                 Log out
               </a>
             </li>
-          </ul>
+          </ul> */}
         </div>
 
         <div
@@ -85,10 +103,7 @@ const SidebarInc = () => {
         >
           <div className="offcanvas-header justify-content-between align-items-center">
             <div className="offcanvas-title">
-              <Link
-                className="navbar-brand me-0 text-bold"
-                to="/organisation-admin/dashboard"
-              >
+              <Link className="navbar-brand me-0 text-bold" to="/">
                 <img
                   src="/images/download.png"
                   className="img-fluid h-icon-50 rounded-circle"
@@ -105,18 +120,23 @@ const SidebarInc = () => {
           </div>
 
           <div className="offcanvas-body flex-column custom-offcanvas-h">
-            <ul className="navbar-nav flex-column sidebar-list m-4 pt-5">
+            <ul className="navbar-nav flex-column sidebar-list m-4 pt-1">
               <li className="nav-item">
                 <Link
                   className="nav-link 
                     d-flex align-items-center"
                 >
                   <img
-                    src="/images/bar-chart-2.svg"
-                    className="img-fluid me-2"
+                    src="/images/Rectangle.svg"
+                    className="img-fluid me-2 rounded-circle"
                     alt="icon"
+                    style={{
+                      backgroundColor: "white",
+                      minWidth: "30px",
+                      minHeight: "36px",
+                    }}
                   />{" "}
-                  Dashboard
+                  <span className="ms-3"> Dashboard</span>
                 </Link>
               </li>
 
@@ -126,11 +146,16 @@ const SidebarInc = () => {
                     d-flex align-items-center"
                 >
                   <img
-                    src="/images/bar-chart-2.svg"
-                    className="img-fluid me-2"
+                    src="/images/Rectangle.svg"
+                    className="img-fluid me-2 rounded-circle"
                     alt="icon"
+                    style={{
+                      backgroundColor: "white",
+                      minWidth: "30px",
+                      minHeight: "36px",
+                    }}
                   />{" "}
-                  Analytics
+                  <span className="ms-3">Analytics </span>
                 </Link>
               </li>
               <li className="nav-item">
@@ -139,11 +164,16 @@ const SidebarInc = () => {
                     d-flex align-items-center"
                 >
                   <img
-                    src="/images/bar-chart-2.svg"
-                    className="img-fluid me-2"
+                    src="/images/Rectangle.svg"
+                    className="img-fluid me-2 rounded-circle"
                     alt="icon"
+                    style={{
+                      backgroundColor: "white",
+                      minWidth: "30px",
+                      minHeight: "36px",
+                    }}
                   />{" "}
-                  Connect
+                  <span className="ms-3">Connect </span>
                 </Link>
               </li>
               <li className="nav-item">
@@ -152,11 +182,17 @@ const SidebarInc = () => {
                     d-flex align-items-center"
                 >
                   <img
-                    src="/images/bar-chart-2.svg"
-                    className="img-fluid me-2"
+                    src="/images/Rectangle.svg"
+                    className="img-fluid me-2 rounded-circle"
                     alt="icon"
+                    style={{
+                      backgroundColor: "white",
+                      minWidth: "30px",
+                      minHeight: "36px",
+                      visibility: "hidden",
+                    }}
                   />{" "}
-                  Dealroom
+                  <span className="ms-3">Dealroom </span>
                 </Link>
               </li>
               <li className="nav-item">
@@ -165,11 +201,17 @@ const SidebarInc = () => {
                     d-flex align-items-center"
                 >
                   <img
-                    src="/images/bar-chart-2.svg"
-                    className="img-fluid me-2"
+                    src="/images/Rectangle.svg"
+                    className="img-fluid me-2 rounded-circle"
                     alt="icon"
+                    style={{
+                      backgroundColor: "white",
+                      minWidth: "30px",
+                      minHeight: "36px",
+                      visibility: "hidden",
+                    }}
                   />{" "}
-                  Profile
+                  <span className="ms-3">Profile </span>
                 </Link>
               </li>
 
@@ -179,11 +221,17 @@ const SidebarInc = () => {
                     d-flex align-items-center"
                 >
                   <img
-                    src="/images/bar-chart-2.svg"
-                    className="img-fluid me-2"
+                    src="/images/Rectangle.svg"
+                    className="img-fluid me-2 rounded-circle"
                     alt="icon"
+                    style={{
+                      backgroundColor: "white",
+                      minWidth: "30px",
+                      minHeight: "36px",
+                      visibility: "hidden",
+                    }}
                   />{" "}
-                  Settings
+                  <span className="ms-3">Settings </span>
                 </Link>
               </li>
             </ul>

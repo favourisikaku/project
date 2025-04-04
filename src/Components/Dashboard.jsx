@@ -5,6 +5,7 @@ import { AppContext } from "../Context/AppContext";
 import { Chart } from "chart.js/auto";
 import { ClipLoader } from "react-spinners";
 import SidebarInc from "../Bars/SidebarInc";
+import NavBottom from "../Bars/NavBottom";
 
 const Dashboard = () => {
   const { toggleSideBar, SideBarVisibility } = useContext(AppContext);
@@ -12,138 +13,6 @@ const Dashboard = () => {
   const chartRef2 = useRef(null);
   const [dataFetched, setDataFetched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        await Promise.all([]);
-        setDataFetched(true);
-      } catch (error) {
-        console.error("Error fetching data:", error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    if (dataFetched && chartRef.current) {
-      const ctx4 = document.getElementById("analytics-o").getContext("2d");
-
-      new Chart(ctx4, {
-        type: "line",
-        data: {
-          labels: [
-            "Mar 1",
-            "Mar 5",
-            "Mar 10",
-            "Mar 15",
-            "Mar 20",
-            "Mar 25",
-            "Mar 30",
-          ],
-          datasets: [
-            {
-              label: "Campaign A", // Label for the first line
-              data: [
-                0, 70, 55, 40, 80, 50, 40, 55, 35, 45, 140, 45, 60, 40, 65, 40,
-                80, 73, 90, 140,
-              ],
-              borderColor: "#fd0403",
-              backgroundColor: "rgba(239, 243, 255, 0.25)",
-              fill: true,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          //tension: 0.3,
-          plugins: {
-            legend: {
-              display: true,
-              position: "top", // Position legend at the top
-              labels: {
-                boxWidth: 16,
-                boxHeight: 16,
-                borderRadius: 4,
-                padding: 20,
-              },
-            },
-          },
-          scales: {
-            x: {
-              display: true,
-              // title: {
-              //   display: true,
-              //   text: "Months",
-              // },
-            },
-            y: {
-              display: true,
-              beginAtZero: true,
-              // title: {
-              //   display: true,
-              //   text: "Performance", // Y-axis label
-              // },
-            },
-          },
-        },
-      });
-
-      const ctx = document.getElementById("halfDonutChart").getContext("2d");
-
-      const data = {
-        labels: ["Red", "Blue", "Green"],
-        datasets: [
-          {
-            data: [70, 30],
-            backgroundColor: ["#FE0000", "#F4F6F7"],
-            hoverBackgroundColor: ["#FE0000", "#F4F6F7"],
-            borderRadius: 50, // Rounds the edges of the segments
-            cutout: "80%",
-          },
-        ],
-      };
-
-      const options = {
-        rotation: -90, // Start angle (top of the chart)
-        circumference: 180, // Half-circle (180 degrees)
-        plugins: {
-          responsive: true,
-          maintainAspectRatio: false,
-          legend: {
-            display: false,
-            position: "bottom",
-          },
-        },
-      };
-
-      const halfDonutChart = new Chart(ctx, {
-        type: "doughnut",
-        data: data,
-        options: options,
-      });
-
-      // Cleanup function to destroy chart on component unmount
-      return () => {
-        if (chartRef.current) {
-          const chartInstance = Chart.getChart(chartRef.current);
-          if (chartInstance) {
-            chartInstance.destroy();
-          }
-        }
-        if (chartRef2.current) {
-          const chartInstance = Chart.getChart(chartRef2.current);
-          if (chartInstance) {
-            chartInstance.destroy();
-          }
-        }
-      };
-    }
-  }, [dataFetched]);
 
   return (
     <div className="main-admin-container">
@@ -186,10 +55,45 @@ const Dashboard = () => {
                           aria-controls="pills-password"
                           aria-selected="false"
                         >
-                          Demographics
+                          Portfolio
+                        </button>
+                      </li>
+                      <li className="nav-item" role="presentation">
+                        <button
+                          className="nav-link"
+                          id="pills-password-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#pills-password"
+                          type="button"
+                          role="tab"
+                          aria-controls="pills-password"
+                          aria-selected="false"
+                        >
+                          Experience
+                        </button>
+                      </li>
+                      <li className="nav-item" role="presentation">
+                        <button
+                          className="nav-link"
+                          id="pills-password-tab"
+                          data-bs-toggle="pill"
+                          data-bs-target="#pills-password"
+                          type="button"
+                          role="tab"
+                          aria-controls="pills-password"
+                          aria-selected="false"
+                        >
+                          Media
                         </button>
                       </li>
                     </ul>
+
+                    <h5
+                      style={{ cursor: "pointer" }}
+                      className="dashboard-more"
+                    >
+                      More
+                    </h5>
                   </div>
 
                   <hr />
@@ -202,253 +106,411 @@ const Dashboard = () => {
                       aria-labelledby="pills-profile-tab"
                       tabIndex="0"
                     >
-                      <div className="container mt-4">
+                      <div
+                        className="container mt-4 "
+                        style={{ paddingBottom: "100px" }}
+                      >
                         <div className="row">
-                          <div className="col-lg-7 mb-4">
-                            <div className="card border-radius-20 p-3 h-100">
-                              <div className="card-body">
-                                <div className="d-flex justify-content-between align-items-center border-0 flex-wrap overflow-auto py-3 pb-4 border-bottom">
-                                  <div className="me-lg-0 me-4 mb-lg-0 mb-3">
-                                    <div className="d-flex align-items-center gap-15">
-                                      <select className="form-select ">
-                                        <option>Last 7 Days</option>
-                                        <option>Last 30 Days</option>
-                                      </select>{" "}
-                                      <select className="form-select ">
-                                        <option>Last 30 Days</option>
-                                        <option>Last 7 Days</option>
-                                      </select>
-                                      <select className="form-select ">
-                                        <option>Compare</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div className="mt-3">
-                                  <div className="chart-height mb-4">
-                                    <canvas
-                                      id="analytics-o"
-                                      ref={chartRef}
-                                    ></canvas>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                          <div>
+                            <h2 className="pb-2">Overview</h2>
                           </div>
 
-                          <div className="col-lg-5 mb-4">
-                            <div className="card border-radius-20 p-3 h-100">
-                              <div className="card-body">
-                                <div className="d-flex justify-content-between align-items-center border-0 flex-nowrap overflow-auto py-3 pb-4 border-bottom">
-                                  <div className="me-lg-0 me-4">
-                                    <div className="mb-4">
-                                      <h4 className="text-medium text-dark mb-0 me-2">
-                                        Insights
-                                      </h4>
-                                    </div>
-                                    <div className="mb-4">
-                                      <h5 className="mb-1">Founders</h5>{" "}
-                                      <div className="d-flex justify-content-between align-items-center">
-                                        <div className="me-4">
-                                          <h1 className="mb-0">7.4k</h1>
-                                        </div>
-                                        <div
-                                          className="d-flex"
-                                          style={{ flexDirection: "column" }}
-                                        >
-                                          <span>000%</span>
-                                          <span>(000)</span>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div>
-                                      <h5 className="mb-1">Investors</h5>{" "}
-                                      <div className="d-flex justify-content-between align-items-center">
-                                        <div className="me-4">
-                                          <h1 className="mb-0">6.09k</h1>
-                                        </div>
-                                        <div
-                                          className="d-flex"
-                                          style={{ flexDirection: "column" }}
-                                        >
-                                          <span>000%</span>
-                                          <span>(000)</span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div className="half-chart">
-                                  <canvas id="halfDonutChart"></canvas>
-                                </div>
-
-                                <div className="border-0 border-top text-end pt-3">
-                                  <button className="btn btn-outline-light btn-size-2 flex-shrink-0">
-                                    view detailed insights
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="container mt-4">
-                        <div className="row">
                           <div className="col-lg-12 mb-4">
-                            <div className="card border-radius-20 p-3 h-100 px-0">
+                            <div className="card h-100 border-dark">
                               <div className="card-body">
-                                <div className="d-flex justify-content-between align-items-center border-0 flex-wrap overflow-auto px-4">
+                                <div className="d-flex justify-content-between align-items-center  flex-wrap overflow-auto py-3 pb-4 ">
                                   <div className="me-lg-0 me-4 mb-lg-0 mb-3">
-                                    <h4 className="text-medium text-dark mb-0">
-                                      Demographics
-                                    </h4>
+                                    <div className="d-flex align-items-center gap-15 px-5 overview-section-1-header">
+                                      <div className="pe-5">
+                                        <img
+                                          className="img-fluid object-fit-cover object-position-center w-100 h-100"
+                                          src="/images/Vector.svg"
+                                        />
+                                      </div>
+                                      <div>
+                                        <div className="d-flex justify-content-between ">
+                                          <h1>Mr A </h1>
+                                          <span className="mt-1">
+                                            <img src="/images/Twitter_Verified_Badge.svg" />
+                                          </span>
+                                        </div>
+                                        <h5
+                                          className="pb-3"
+                                          style={{ fontWeight: "200" }}
+                                        >
+                                          Co-Founder & CEO @Vertx{" "}
+                                          <span className="ps-2">
+                                            <img
+                                              className="img-fluid px-1 rounded-1 py-1"
+                                              style={{
+                                                backgroundColor: "white",
+                                                minWidth: "20px",
+                                                minHeight: "20px",
+                                              }}
+                                              src="/images/Vertx.svg"
+                                            />
+                                          </span>
+                                        </h5>
+                                        <div className="entrepreneur-header">
+                                          <span
+                                            className="border border-2 ps-1 pe-3 rounded-2"
+                                            style={{
+                                              backgroundColor: "white",
+                                              color: "black",
+                                            }}
+                                          >
+                                            Entrepreneur
+                                          </span>
+                                          <div className="pt-5 logos">
+                                            <img
+                                              className="img-fluid"
+                                              src="/images/linked.svg"
+                                            />
+
+                                            <img
+                                              className="img-fluid px-3"
+                                              src="/images/linkedin.svg"
+                                            />
+
+                                            <img
+                                              className="img-fluid"
+                                              style={{
+                                                height: "20px",
+                                                minWidth: "10px",
+                                                minHeight: "20px",
+                                              }}
+                                              src="/images/download.png"
+                                            />
+                                          </div>
+                                        </div>
+                                        {/* <img src="/images/download.png" /> */}
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
+                              </div>
+                            </div>
+                          </div>
 
-                                <hr />
+                          <div className="col-lg-6 mb-4">
+                            <div className="card h-100 border-dark">
+                              <div className="card-body">
+                                <div className="d-flex justify-content-between align-items-center border-0 flex-wrap overflow-auto py-3 pb-4 ">
+                                  <div className="me-lg-0 me-4 mb-lg-0 mb-3">
+                                    <div className="d-flex align-items-center gap-15 px-5 section-2-header">
+                                      {/* <div>
+                                        <img
+                                          className="img-fluid object-fit-cover object-position-center w-100 h-100"
+                                          src="/images/Vector.svg"
+                                        />
+                                      </div> */}
+                                      <div>
+                                        <h3>Founded Companies</h3>
+                                        <h1
+                                          className="pt-3 pb-3"
+                                          style={{ fontSize: "40px" }}
+                                        >
+                                          02
+                                        </h1>
+                                        <div className="d-flex justify-content-between ">
+                                          <div className="d-flex justify-content-center">
+                                            <div className="me-3">
+                                              <img
+                                                className="img-fluid px-1 rounded-1 py-1"
+                                                style={{
+                                                  backgroundColor: "white",
+                                                  minWidth: "30px",
+                                                  minHeight: "36px",
+                                                }}
+                                                src="/images/Vertx.svg"
+                                              />
+                                            </div>
+                                            <div>
+                                              <div
+                                                className="d-flex "
+                                                style={{
+                                                  margin: "0px",
+                                                  padding: "0px",
+                                                }}
+                                              >
+                                                <h5
+                                                  style={{
+                                                    margin: "0px",
+                                                    padding: "0px",
+                                                  }}
+                                                >
+                                                  Vertx{" "}
+                                                  <span
+                                                    style={{
+                                                      fontSize: "12px",
 
-                                <div className="row">
-                                  <div className="col-lg-8">
-                                    <div className="map-container">
-                                      <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15851.4001900965!2d3.3333472499999997!3d6.66549745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1733566622119!5m2!1sen!2sng"
-                                        width="600"
-                                        height="450"
-                                        style={{ border: "0" }}
-                                        allowFullScreen=""
-                                        loading="lazy"
-                                        referrerPolicy="no-referrer-when-downgrade"
-                                      ></iframe>
+                                                      backgroundColor:
+                                                        "#579560",
+                                                      color: "#000000",
+                                                      fontWeight: "200",
+                                                    }}
+                                                    className="border border-0 px-2 rounded-1 ms-3"
+                                                  >
+                                                    CEO
+                                                  </span>
+                                                </h5>
+                                              </div>
+                                              <div>
+                                                <p
+                                                  style={{ fontWeight: "200" }}
+                                                >
+                                                  Founded in 2025. in{" "}
+                                                  <strong>Fintech</strong>
+                                                </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div className="">
+                                            <a
+                                              style={{
+                                                cursor: "pointer",
+                                                fontWeight: "200",
+                                              }}
+                                            >
+                                              View profile
+                                            </a>
+                                          </div>
+                                        </div>
+
+                                        <div className="d-flex justify-content-between mt-3">
+                                          <div className="d-flex justify-content-center">
+                                            <div className="me-3">
+                                              <img
+                                                className="img-fluid px-1 rounded-1 py-1"
+                                                style={{
+                                                  backgroundColor: "white",
+                                                  minWidth: "30px",
+                                                  minHeight: "36px",
+                                                }}
+                                                src="/images/Rectangle.svg"
+                                              />
+                                            </div>
+                                            <div>
+                                              <div
+                                                className="d-flex "
+                                                style={{
+                                                  margin: "0px",
+                                                  padding: "0px",
+                                                }}
+                                              >
+                                                <h5
+                                                  style={{
+                                                    margin: "0px",
+                                                    padding: "0px",
+                                                  }}
+                                                  className="mb-2"
+                                                >
+                                                  Company{" "}
+                                                  <span
+                                                    style={{
+                                                      fontSize: "12px",
+
+                                                      backgroundColor:
+                                                        "#B1BDEB",
+                                                      color: "#000000",
+                                                      fontWeight: "500",
+                                                    }}
+                                                    className="border border-0 px-2 rounded-1 ms-1"
+                                                  >
+                                                    PROPREITOR
+                                                  </span>
+                                                </h5>
+                                              </div>
+                                              <div>
+                                                <p
+                                                  style={{
+                                                    fontWeight: "400",
+                                                    lineHeight: "18px",
+                                                  }}
+                                                >
+                                                  Details/Information <br />
+                                                  like acquired /exit/m&a
+                                                </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div className="">
+                                            <a
+                                              style={{
+                                                cursor: "pointer",
+                                                fontWeight: "200",
+                                              }}
+                                            >
+                                              View profile
+                                            </a>
+                                          </div>
+                                        </div>
+                                        {/* <img src="/images/Vector (2)." /> */}
+                                      </div>
                                     </div>
                                   </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
-                                  <div className="col-lg-4">
-                                    <div>
-                                      <div className="mb-4">
-                                        <div
-                                          className="d-flex justify-content-between align-items-center"
-                                          style={{ marginBottom: "-2px" }}
+                          <div className="col-lg-6 mb-4 ">
+                            <div className="card h-100 border-dark ">
+                              <div className="card-body ">
+                                <div className="d-flex justify-content-between align-items-center border-0 flex-wrap overflow-auto py-3 pb-4 ">
+                                  <div className="me-lg-0 me-4 mb-lg-0 mb-3">
+                                    <div className="d-flex align-items-center gap-15 px-5 section-3-header">
+                                      {/* <div>
+                                        <img
+                                          className="img-fluid object-fit-cover object-position-center w-100 h-100"
+                                          src="/images/Vector.svg"
+                                        />
+                                      </div> */}
+                                      <div>
+                                        <h3>Experience</h3>
+                                        <h1
+                                          className="pt-3 pb-3"
+                                          style={{ fontSize: "40px" }}
                                         >
-                                          <h5 className="text-medium text-black mb-1">
-                                            india
-                                          </h5>
-                                          <p className="text-medium text-black mb-1">
-                                            40%
-                                          </p>
-                                        </div>
-                                        <div
-                                          className="progress mt-2"
-                                          style={{ height: "10px" }}
-                                        >
-                                          <div
-                                            className="progress-bar "
-                                            role="progressbar"
-                                            style={{
-                                              width: "30%",
-                                              backgroundColor: "purple",
-                                            }}
-                                            aria-valuenow="65"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"
-                                          ></div>
-                                        </div>
-                                      </div>
+                                          03
+                                        </h1>
 
-                                      <div className="mb-4">
-                                        <div
-                                          className="d-flex justify-content-between align-items-center"
-                                          style={{ marginBottom: "-2px" }}
-                                        >
-                                          <h5 className="text-medium text-black mb-1">
-                                            USA
-                                          </h5>
-                                          <p className="text-medium text-black mb-1">
-                                            26%
-                                          </p>
+                                        <div className="d-flex justify-content-between align-items-center mt-3">
+                                          <div className="d-flex justify-content-center align-items-center">
+                                            <div className="me-3">
+                                              <img
+                                                className="img-fluid px-1 rounded-1 py-1"
+                                                style={{
+                                                  backgroundColor: "white",
+                                                  minWidth: "30px",
+                                                  minHeight: "36px",
+                                                }}
+                                                src="/images/Rectangle.svg"
+                                              />
+                                            </div>
+                                            <div>
+                                              <div
+                                                className="d-flex "
+                                                style={{
+                                                  margin: "0px",
+                                                  padding: "0px",
+                                                }}
+                                              >
+                                                <h5
+                                                  style={{
+                                                    margin: "0px",
+                                                    padding: "0px",
+                                                  }}
+                                                  className=""
+                                                >
+                                                  Company 1
+                                                </h5>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div className="">
+                                            <a
+                                              style={{
+                                                cursor: "pointer",
+                                                fontWeight: "200",
+                                              }}
+                                            >
+                                              View profile
+                                            </a>
+                                          </div>
                                         </div>
-                                        <div
-                                          className="progress mt-2"
-                                          style={{ height: "10px" }}
-                                        >
-                                          <div
-                                            className="progress-bar "
-                                            role="progressbar"
-                                            style={{
-                                              width: "20%",
-                                              backgroundColor: "orange",
-                                            }}
-                                            aria-valuenow="65"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"
-                                          ></div>
-                                        </div>
-                                      </div>
-                                      <div className="mb-4">
-                                        <div
-                                          className="d-flex justify-content-between align-items-center"
-                                          style={{ marginBottom: "-2px" }}
-                                        >
-                                          <h5 className="text-medium text-black mb-1">
-                                            Canada
-                                          </h5>
-                                          <p className="text-medium text-black mb-1">
-                                            10%
-                                          </p>
-                                        </div>
-                                        <div
-                                          className="progress mt-2"
-                                          style={{ height: "10px" }}
-                                        >
-                                          <div
-                                            className="progress-bar "
-                                            role="progressbar"
-                                            style={{
-                                              width: "10%",
-                                              backgroundColor: "yellow",
-                                            }}
-                                            aria-valuenow="65"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"
-                                          ></div>
-                                        </div>
-                                      </div>
 
-                                      <div className="mb-4">
-                                        <div
-                                          className="d-flex justify-content-between align-items-center"
-                                          style={{ marginBottom: "-2px" }}
-                                        >
-                                          <h5 className="text-medium text-black mb-1">
-                                            UAE
-                                          </h5>
-                                          <p className="text-medium text-black mb-1">
-                                            3%
-                                          </p>
+                                        <div className="d-flex justify-content-between align-items-center py-4">
+                                          <div className="d-flex justify-content-center align-items-center">
+                                            <div className="me-3">
+                                              <img
+                                                className="img-fluid px-1 rounded-1 py-1"
+                                                style={{
+                                                  backgroundColor: "white",
+                                                  minWidth: "30px",
+                                                  minHeight: "36px",
+                                                }}
+                                                src="/images/Rectangle.svg"
+                                              />
+                                            </div>
+                                            <div>
+                                              <div
+                                                className="d-flex "
+                                                style={{
+                                                  margin: "0px",
+                                                  padding: "0px",
+                                                }}
+                                              >
+                                                <h5
+                                                  style={{
+                                                    margin: "0px",
+                                                    padding: "0px",
+                                                  }}
+                                                  className=""
+                                                >
+                                                  Company 2
+                                                </h5>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div className="">
+                                            <a
+                                              style={{
+                                                cursor: "pointer",
+                                                fontWeight: "200",
+                                              }}
+                                            >
+                                              View profile
+                                            </a>
+                                          </div>
                                         </div>
-                                        <div
-                                          className="progress mt-2"
-                                          style={{ height: "10px" }}
-                                        >
-                                          <div
-                                            className="progress-bar "
-                                            role="progressbar"
-                                            style={{
-                                              width: "5%",
-                                              backgroundColor: "green",
-                                            }}
-                                            aria-valuenow="65"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"
-                                          ></div>
+
+                                        <div className="d-flex justify-content-between align-items-center ">
+                                          <div className="d-flex justify-content-center align-items-center">
+                                            <div className="me-3">
+                                              <img
+                                                className="img-fluid px-1 rounded-1 py-1"
+                                                style={{
+                                                  backgroundColor: "white",
+                                                  minWidth: "30px",
+                                                  minHeight: "36px",
+                                                }}
+                                                src="/images/Rectangle.svg"
+                                              />
+                                            </div>
+                                            <div>
+                                              <div
+                                                className="d-flex "
+                                                style={{
+                                                  margin: "0px",
+                                                  padding: "0px",
+                                                }}
+                                              >
+                                                <h5
+                                                  style={{
+                                                    margin: "0px",
+                                                    padding: "0px",
+                                                  }}
+                                                  className=""
+                                                >
+                                                  Company 3
+                                                </h5>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div className="">
+                                            <a
+                                              style={{
+                                                cursor: "pointer",
+                                                fontWeight: "200",
+                                              }}
+                                            >
+                                              View profile
+                                            </a>
+                                          </div>
                                         </div>
+                                        {/* <img src="/images/download.png" /> */}
                                       </div>
-                                    </div>
-                                    <div>
-                                      <h6>View Countries</h6>
                                     </div>
                                   </div>
                                 </div>
@@ -459,18 +521,20 @@ const Dashboard = () => {
                       </div>
                     </div>
 
-                    <div
+                    {/* <div
                       className="tab-pane fade"
                       id="pills-password"
                       role="tabpanel"
                       aria-labelledby="pills-password-tab"
                       tabIndex="0"
-                    ></div>
+                    ></div> */}
                   </div>
                 </div>
               </div>
             </div>
           </main>
+
+          <NavBottom />
         </div>
       </div>
     </div>

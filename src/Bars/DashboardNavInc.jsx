@@ -5,17 +5,17 @@ import { AppContext } from "../Context/AppContext";
 const DashboardNavInc = ({ SideBarVisibility }) => {
   return (
     <>
-      <div className="bg-white d-lg-block d-none py-2 border-bottom">
-        <div className="container d-flex align-items-center justify-content-between lms-heading-title">
+      <div className=" d-lg-block d-none py-3 border-bottom  border-dark">
+        <div className="container d-flex align-items-center justify-content-between lms-heading-title pt-4">
           <div className="d-flex align-items-center">
-            <i
+            {/* <i
               className="bi bi-list bi-2 text-dark cursor-pointer arrow-box cursor-pointer toggle-side"
               onClick={SideBarVisibility}
-            ></i>
+            ></i> */}
 
             <div>
-              <h3 className="mb-1 text-black">Dashboard</h3>
-              <p className="text-gray-1 ft-sm mb-0">Welcome back, Favour!</p>
+              <h5 className="mb-1 ">Profile</h5>
+              {/* <p className="text-gray-1 ft-sm mb-0">Welcome back, Favour!</p> */}
             </div>
           </div>
 
@@ -23,14 +23,14 @@ const DashboardNavInc = ({ SideBarVisibility }) => {
             className="d-lg-flex align-items-center d-none"
             style={{ gap: "20px" }}
           >
-            <a href="#" className="flex-shrink-0">
-              <img
-                src="/images/notification-bell.svg"
-                className="img-fluid"
-                alt="bell"
-              />
-            </a>
-            <div className="dropdown">
+            <h5 className="mb-1 " style={{ cursor: "pointer" }}>
+              Activity
+            </h5>
+            <h5 className="mb-1 " style={{ cursor: "pointer" }}>
+              Logout
+            </h5>
+
+            {/* <div className="dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
@@ -61,7 +61,7 @@ const DashboardNavInc = ({ SideBarVisibility }) => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

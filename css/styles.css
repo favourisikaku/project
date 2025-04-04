@@ -2228,8 +2228,8 @@ hr {
 
 .custom-pills.nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: var(--primary);
-  background-color: #fff0f0;
+  color: white;
+  /* background-color: #fff0f0; */
 }
 
 .custom-pills.nav-pills .nav-link {
