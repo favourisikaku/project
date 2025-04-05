@@ -2412,6 +2412,17 @@ table {
     font-weight: 700;
   }
 
+  .navbar-circle-mobile-image {
+    display: none !important;
+  }
+
+  .sidebar-logo-white-image {
+    display: block !important;
+  }
+  .right-sidebar-logo {
+    display: block !important;
+  }
+
   .logo-header-text {
     display: none;
   }
@@ -2422,9 +2433,7 @@ table {
   .vertx-logo-mobile {
     display: block !important;
   }
-  .navbar-circle-mobile-image {
-    display: none !important;
-  }
+
   .navbar-circle-mobile {
     display: block !important;
     padding-left: 15px !important;
@@ -2441,6 +2450,7 @@ table {
   }
   .entrepreneur-header {
     display: flex;
+    justify-content: space-between !important;
   }
   .entrepreneur-header span {
     height: 23px;

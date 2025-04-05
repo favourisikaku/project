@@ -195,16 +195,10 @@ const Dashboard = () => {
                           <div className="col-lg-6 mb-4">
                             <div className="card h-100 border-dark">
                               <div className="card-body">
-                                <div className="d-flex justify-content-between align-items-center border-0 flex-wrap overflow-auto py-3 pb-4 ">
-                                  <div className="me-lg-0 me-4 mb-lg-0 mb-3">
-                                    <div className="d-flex align-items-center gap-15 px-5 section-2-header">
-                                      {/* <div>
-                                        <img
-                                          className="img-fluid object-fit-cover object-position-center w-100 h-100"
-                                          src="/images/Vector.svg"
-                                        />
-                                      </div> */}
-                                      <div>
+                                <div className="d-flex justify-content-between align-items-center border-0 flex-wrap overflow-auto py-3 pb-4">
+                                  <div className="me-lg-0 me-4 mb-lg-0 mb-3 w-100">
+                                    <div className="d-flex align-items-center gap-15 section-2-header w-100">
+                                      <div className="w-100">
                                         <h3>Founded Companies</h3>
                                         <h1
                                           className="pt-3 pb-3"
@@ -212,8 +206,9 @@ const Dashboard = () => {
                                         >
                                           02
                                         </h1>
-                                        <div className="d-flex justify-content-between ">
-                                          <div className="d-flex justify-content-center">
+
+                                        <div className="d-flex justify-content-between align-items-start w-100">
+                                          <div className="d-flex align-items-start">
                                             <div className="me-3">
                                               <img
                                                 className="img-fluid px-1 rounded-1 py-1"
@@ -226,59 +221,43 @@ const Dashboard = () => {
                                               />
                                             </div>
                                             <div>
-                                              <div
-                                                className="d-flex "
+                                              <h5
                                                 style={{
-                                                  margin: "0px",
-                                                  padding: "0px",
+                                                  margin: 0,
+                                                  padding: 0,
                                                 }}
                                               >
-                                                <h5
+                                                Vertx{" "}
+                                                <span
                                                   style={{
-                                                    margin: "0px",
-                                                    padding: "0px",
+                                                    fontSize: "12px",
+                                                    backgroundColor: "#579560",
+                                                    color: "#000000",
+                                                    fontWeight: "200",
                                                   }}
+                                                  className="border border-0 px-2 rounded-1 ms-3"
                                                 >
-                                                  Vertx{" "}
-                                                  <span
-                                                    style={{
-                                                      fontSize: "12px",
-
-                                                      backgroundColor:
-                                                        "#579560",
-                                                      color: "#000000",
-                                                      fontWeight: "200",
-                                                    }}
-                                                    className="border border-0 px-2 rounded-1 ms-3"
-                                                  >
-                                                    CEO
-                                                  </span>
-                                                </h5>
-                                              </div>
-                                              <div>
-                                                <p
-                                                  style={{ fontWeight: "200" }}
-                                                >
-                                                  Founded in 2025. in{" "}
-                                                  <strong>Fintech</strong>
-                                                </p>
-                                              </div>
+                                                  CEO
+                                                </span>
+                                              </h5>
+                                              <p style={{ fontWeight: "200" }}>
+                                                Founded in 2025. in{" "}
+                                                <strong>Fintech</strong>
+                                              </p>
                                             </div>
                                           </div>
-                                          <div className="">
-                                            <a
-                                              style={{
-                                                cursor: "pointer",
-                                                fontWeight: "200",
-                                              }}
-                                            >
-                                              View profile
-                                            </a>
-                                          </div>
+                                          <a
+                                            style={{
+                                              cursor: "pointer",
+                                              fontWeight: "200",
+                                            }}
+                                          >
+                                            View profile
+                                          </a>
                                         </div>
 
-                                        <div className="d-flex justify-content-between mt-3">
-                                          <div className="d-flex justify-content-center">
+                                        <div className="d-flex justify-content-between align-items-start mt-3 w-100">
+                                          <div className="d-flex align-items-start">
                                             <div className="me-3">
                                               <img
                                                 className="img-fluid px-1 rounded-1 py-1"
@@ -291,61 +270,46 @@ const Dashboard = () => {
                                               />
                                             </div>
                                             <div>
-                                              <div
-                                                className="d-flex "
+                                              <h5
                                                 style={{
-                                                  margin: "0px",
-                                                  padding: "0px",
+                                                  margin: 0,
+                                                  padding: 0,
+                                                }}
+                                                className="mb-2"
+                                              >
+                                                Company{" "}
+                                                <span
+                                                  style={{
+                                                    fontSize: "12px",
+                                                    backgroundColor: "#B1BDEB",
+                                                    color: "#000000",
+                                                    fontWeight: "500",
+                                                  }}
+                                                  className="border border-0 px-2 rounded-1 ms-1"
+                                                >
+                                                  PROPRIETOR
+                                                </span>
+                                              </h5>
+                                              <p
+                                                style={{
+                                                  fontWeight: "400",
+                                                  lineHeight: "18px",
                                                 }}
                                               >
-                                                <h5
-                                                  style={{
-                                                    margin: "0px",
-                                                    padding: "0px",
-                                                  }}
-                                                  className="mb-2"
-                                                >
-                                                  Company{" "}
-                                                  <span
-                                                    style={{
-                                                      fontSize: "12px",
-
-                                                      backgroundColor:
-                                                        "#B1BDEB",
-                                                      color: "#000000",
-                                                      fontWeight: "500",
-                                                    }}
-                                                    className="border border-0 px-2 rounded-1 ms-1"
-                                                  >
-                                                    PROPREITOR
-                                                  </span>
-                                                </h5>
-                                              </div>
-                                              <div>
-                                                <p
-                                                  style={{
-                                                    fontWeight: "400",
-                                                    lineHeight: "18px",
-                                                  }}
-                                                >
-                                                  Details/Information <br />
-                                                  like acquired /exit/m&a
-                                                </p>
-                                              </div>
+                                                Details/Information <br />
+                                                like acquired / exit / m&a
+                                              </p>
                                             </div>
                                           </div>
-                                          <div className="">
-                                            <a
-                                              style={{
-                                                cursor: "pointer",
-                                                fontWeight: "200",
-                                              }}
-                                            >
-                                              View profile
-                                            </a>
-                                          </div>
+                                          <a
+                                            style={{
+                                              cursor: "pointer",
+                                              fontWeight: "200",
+                                            }}
+                                          >
+                                            View profile
+                                          </a>
                                         </div>
-                                        {/* <img src="/images/Vector (2)." /> */}
                                       </div>
                                     </div>
                                   </div>
@@ -354,19 +318,13 @@ const Dashboard = () => {
                             </div>
                           </div>
 
-                          <div className="col-lg-6 mb-4 ">
-                            <div className="card h-100 border-dark ">
-                              <div className="card-body ">
-                                <div className="d-flex justify-content-between align-items-center border-0 flex-wrap overflow-auto py-3 pb-4 ">
-                                  <div className="me-lg-0 me-4 mb-lg-0 mb-3">
-                                    <div className="d-flex align-items-center gap-15 px-5 section-3-header">
-                                      {/* <div>
-                                        <img
-                                          className="img-fluid object-fit-cover object-position-center w-100 h-100"
-                                          src="/images/Vector.svg"
-                                        />
-                                      </div> */}
-                                      <div>
+                          <div className="col-lg-6 mb-4">
+                            <div className="card h-100 border-dark">
+                              <div className="card-body">
+                                <div className="d-flex justify-content-between align-items-center border-0 flex-wrap overflow-auto py-3 pb-4">
+                                  <div className="me-lg-0 me-4 mb-lg-0 mb-3 w-100">
+                                    <div className="d-flex align-items-center gap-15 section-3-header w-100">
+                                      <div className="w-100">
                                         <h3>Experience</h3>
                                         <h1
                                           className="pt-3 pb-3"
@@ -375,8 +333,8 @@ const Dashboard = () => {
                                           03
                                         </h1>
 
-                                        <div className="d-flex justify-content-between align-items-center mt-3">
-                                          <div className="d-flex justify-content-center align-items-center">
+                                        <div className="d-flex justify-content-between align-items-center mt-3 w-100">
+                                          <div className="d-flex align-items-center">
                                             <div className="me-3">
                                               <img
                                                 className="img-fluid px-1 rounded-1 py-1"
@@ -389,39 +347,28 @@ const Dashboard = () => {
                                               />
                                             </div>
                                             <div>
-                                              <div
-                                                className="d-flex "
+                                              <h5
                                                 style={{
-                                                  margin: "0px",
-                                                  padding: "0px",
+                                                  margin: 0,
+                                                  padding: 0,
                                                 }}
                                               >
-                                                <h5
-                                                  style={{
-                                                    margin: "0px",
-                                                    padding: "0px",
-                                                  }}
-                                                  className=""
-                                                >
-                                                  Company 1
-                                                </h5>
-                                              </div>
+                                                Company 1
+                                              </h5>
                                             </div>
                                           </div>
-                                          <div className="">
-                                            <a
-                                              style={{
-                                                cursor: "pointer",
-                                                fontWeight: "200",
-                                              }}
-                                            >
-                                              View profile
-                                            </a>
-                                          </div>
+                                          <a
+                                            style={{
+                                              cursor: "pointer",
+                                              fontWeight: "200",
+                                            }}
+                                          >
+                                            View profile
+                                          </a>
                                         </div>
 
-                                        <div className="d-flex justify-content-between align-items-center py-4">
-                                          <div className="d-flex justify-content-center align-items-center">
+                                        <div className="d-flex justify-content-between align-items-center py-4 w-100">
+                                          <div className="d-flex align-items-center">
                                             <div className="me-3">
                                               <img
                                                 className="img-fluid px-1 rounded-1 py-1"
@@ -434,39 +381,28 @@ const Dashboard = () => {
                                               />
                                             </div>
                                             <div>
-                                              <div
-                                                className="d-flex "
+                                              <h5
                                                 style={{
-                                                  margin: "0px",
-                                                  padding: "0px",
+                                                  margin: 0,
+                                                  padding: 0,
                                                 }}
                                               >
-                                                <h5
-                                                  style={{
-                                                    margin: "0px",
-                                                    padding: "0px",
-                                                  }}
-                                                  className=""
-                                                >
-                                                  Company 2
-                                                </h5>
-                                              </div>
+                                                Company 2
+                                              </h5>
                                             </div>
                                           </div>
-                                          <div className="">
-                                            <a
-                                              style={{
-                                                cursor: "pointer",
-                                                fontWeight: "200",
-                                              }}
-                                            >
-                                              View profile
-                                            </a>
-                                          </div>
+                                          <a
+                                            style={{
+                                              cursor: "pointer",
+                                              fontWeight: "200",
+                                            }}
+                                          >
+                                            View profile
+                                          </a>
                                         </div>
 
-                                        <div className="d-flex justify-content-between align-items-center ">
-                                          <div className="d-flex justify-content-center align-items-center">
+                                        <div className="d-flex justify-content-between align-items-center w-100">
+                                          <div className="d-flex align-items-center">
                                             <div className="me-3">
                                               <img
                                                 className="img-fluid px-1 rounded-1 py-1"
@@ -479,37 +415,25 @@ const Dashboard = () => {
                                               />
                                             </div>
                                             <div>
-                                              <div
-                                                className="d-flex "
+                                              <h5
                                                 style={{
-                                                  margin: "0px",
-                                                  padding: "0px",
+                                                  margin: 0,
+                                                  padding: 0,
                                                 }}
                                               >
-                                                <h5
-                                                  style={{
-                                                    margin: "0px",
-                                                    padding: "0px",
-                                                  }}
-                                                  className=""
-                                                >
-                                                  Company 3
-                                                </h5>
-                                              </div>
+                                                Company 3
+                                              </h5>
                                             </div>
                                           </div>
-                                          <div className="">
-                                            <a
-                                              style={{
-                                                cursor: "pointer",
-                                                fontWeight: "200",
-                                              }}
-                                            >
-                                              View profile
-                                            </a>
-                                          </div>
+                                          <a
+                                            style={{
+                                              cursor: "pointer",
+                                              fontWeight: "200",
+                                            }}
+                                          >
+                                            View profile
+                                          </a>
                                         </div>
-                                        {/* <img src="/images/download.png" /> */}
                                       </div>
                                     </div>
                                   </div>
