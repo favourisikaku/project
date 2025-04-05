@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { AppContext } from "../Context/AppContext";
 
 const DashboardNavInc = ({ SideBarVisibility }) => {
   return (

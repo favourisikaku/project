@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AppContext } from "../Context/AppContext";
 
 const SidebarInc = () => {
   const location = useLocation();
